@@ -148,12 +148,12 @@ public class GIFView extends View {
 			int relTime = (int)((now - moviestart) % movie.duration()) ;
 			//System.out.println("time="+relTime+"\treltime="+movie.duration());
 			movie.setTime(relTime);
-			//double scalefactorx = (double) this.getWidth() / (double) movie.width();
-			//double scalefactory = (double) this.getHeight() / (double) movie.height();
-			//canvas.scale((float) scalefactorx, (float) scalefactory); 
-			//movie.draw(canvas,(float) scalefactorx, (float)scalefactory);
-		    mDrawLeftPos = Math.max( ( this.getWidth() - movie.width() ) / 2, 0) ;
-			movie.draw(canvas, mDrawLeftPos, this.getPaddingTop());
+			double scalefactorx = (double) this.getWidth() / (double) movie.width();
+			double scalefactory = (double) this.getHeight() / (double) movie.height();
+			canvas.scale((float) scalefactorx, (float) scalefactory); 
+			movie.draw(canvas,(float) scalefactorx, (float)scalefactory);
+		    //mDrawLeftPos = Math.max( ( this.getWidth() - movie.width() ) / 2, 0) ;
+			//movie.draw(canvas, mDrawLeftPos, this.getPaddingTop());
 			this.invalidate();
 		}
 	}

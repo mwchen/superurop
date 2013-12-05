@@ -7,20 +7,22 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.GridView;
 import android.widget.ImageView;
+import android.widget.ListAdapter;
 import android.content.Intent;
 
 public class AnimatePictures extends Activity {
-
+	
 	private Integer gifLocation = R.drawable.skingif1; 
+	
+	GIFView view;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_animate_pictures);
-		//setContentView(setGifAnimation((GridView) findViewById(R.id.gridview)));
-		//GIFView gifView = new GIFView(this);
-	    //gifView.setGIFResource(R.drawable.skingif1);
-		//setContentView(gifView);
+		
+		view = (GIFView) findViewById(R.id.gif_animation);
+	    view.setGIFResource(R.drawable.skingif1);
 	}
 
 	@Override
