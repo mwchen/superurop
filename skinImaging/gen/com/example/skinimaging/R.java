@@ -70,12 +70,15 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int w3=0x7f020006;
     }
     public static final class id {
-        public static final int action_settings=0x7f09000a;
+        public static final int action_settings=0x7f09000d;
         public static final int btnNo=0x7f090005;
         public static final int btnYes=0x7f090004;
         public static final int confirmText=0x7f090002;
         public static final int date_image=0x7f090000;
+        public static final int grid_item_image=0x7f09000a;
+        public static final int grid_item_label=0x7f09000b;
         public static final int gridview=0x7f090006;
+        public static final int label=0x7f09000c;
         public static final int options_text_intro=0x7f090007;
         public static final int photoConfirm=0x7f090003;
         public static final int progressText=0x7f090001;
@@ -89,7 +92,8 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int activity_options=0x7f030003;
         public static final int activity_photo_intent=0x7f030004;
         public static final int activity_take_photos=0x7f030005;
-        public static final int sample_gifview=0x7f030006;
+        public static final int region_icon=0x7f030006;
+        public static final int sample_gifview=0x7f030007;
     }
     public static final class menu {
         public static final int animate_pictures=0x7f080000;

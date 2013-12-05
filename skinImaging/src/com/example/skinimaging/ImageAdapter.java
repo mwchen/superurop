@@ -1,11 +1,13 @@
 package com.example.skinimaging;
 
 import android.content.Context;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.GridView;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 public class ImageAdapter extends BaseAdapter {
 	private Context mContext;
@@ -34,18 +36,29 @@ public class ImageAdapter extends BaseAdapter {
 
 	@Override
 	public View getView(int position, View convertView, ViewGroup parent) {
-		ImageView imageView; 
+		View gridView; 
+		LayoutInflater inflater = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+		
 		if (convertView == null) {
-			imageView = new ImageView(mContext);
-			imageView.setLayoutParams(new GridView.LayoutParams(200,200));
-			imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
-			imageView.setPadding(10,10,10,10);
+			gridView = new View(mContext);
+			//imageView.setLayoutParams(new GridView.LayoutParams(200,200));
+			//imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
+			//imageView.setPadding(10,10,10,10);
+			gridView = inflater.inflate(R.layout.region_icon, null);
+			
+			// Set the text to the specified grid item "Region "
+			TextView textView = (TextView) gridView.findViewById(R.id.grid_item_label);
+			textView.setText("Region " + Integer.toString(position));
+			
+			ImageView imageView = (ImageView) gridView.findViewById(R.id.grid_item_image);
+			imageView.setImageResource(mThumbIds[position]);
+			
 		} else {
-			imageView = (ImageView) convertView;
+			gridView = (View) convertView;
 		}
 		
-		imageView.setImageResource(mThumbIds[position]);
-		return imageView;
+		//imageView.setImageResource(mThumbIds[position]);
+		return gridView;
 	}
 	
 	// references to the images 

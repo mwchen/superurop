@@ -27,6 +27,7 @@ public class GIFView extends View {
 	private TextPaint mTextPaint;
 	private float mTextWidth;
 	private float mTextHeight;
+	private int mDrawLeftPos;
 	
 	Movie movie,movie1;
 	InputStream is=null,is1=null;
@@ -117,6 +118,21 @@ public class GIFView extends View {
 		Paint.FontMetrics fontMetrics = mTextPaint.getFontMetrics();
 		mTextHeight = fontMetrics.bottom;
 	}
+	
+	/*@Override
+	protected void onMeasure( int widthMeasureSpec, int heightMeasureSpec )
+	{   
+	    int p_top = this.getPaddingTop(), p_bottom = this.getPaddingBottom();
+
+	    // Calculate new desired height
+	    final int desiredHSpec = MeasureSpec.makeMeasureSpec( movie.height() + p_top + p_bottom , MeasureSpec.EXACTLY );
+
+	    setMeasuredDimension( widthMeasureSpec, desiredHSpec );
+	    super.onMeasure( widthMeasureSpec, desiredHSpec );
+
+	    // Update the draw left position
+	    mDrawLeftPos = Math.max( ( this.getWidth() - movie.width() ) / 2, 0) ;
+	}*/
 
 	@Override
 	protected void onDraw(Canvas canvas) {
@@ -132,11 +148,12 @@ public class GIFView extends View {
 			int relTime = (int)((now - moviestart) % movie.duration()) ;
 			//System.out.println("time="+relTime+"\treltime="+movie.duration());
 			movie.setTime(relTime);
-			double scalefactorx = (double) this.getWidth() / (double) movie.width();
-			double scalefactory = (double) this.getHeight() / (double) movie.height();
-			canvas.scale((float) scalefactorx, (float) scalefactory); 
-			movie.draw(canvas,(float) scalefactorx, (float)scalefactory);
-			//movie.draw(canvas,this.getWidth(), this.getHeight());
+			//double scalefactorx = (double) this.getWidth() / (double) movie.width();
+			//double scalefactory = (double) this.getHeight() / (double) movie.height();
+			//canvas.scale((float) scalefactorx, (float) scalefactory); 
+			//movie.draw(canvas,(float) scalefactorx, (float)scalefactory);
+		    mDrawLeftPos = Math.max( ( this.getWidth() - movie.width() ) / 2, 0) ;
+			movie.draw(canvas, mDrawLeftPos, this.getPaddingTop());
 			this.invalidate();
 		}
 	}
