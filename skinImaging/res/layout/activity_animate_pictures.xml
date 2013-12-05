@@ -1,0 +1,41 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res/com.example.skinimaging"
+    android:background="@color/app_background"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/date_image"
+        style="@android:style/TextAppearance.DeviceDefault.Large"
+        android:layout_width="wrap_content"
+        android:layout_height="48dp"
+        android:layout_gravity="center_horizontal"
+        android:paddingTop="20dp"
+        android:text="@string/date_image_text"
+        android:typeface="serif" />
+
+    <com.example.skinimaging.GIFView
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:layout_marginBottom="20dp"
+        android:layout_marginTop="20dp"
+        android:background="#ccc"
+        android:paddingBottom="40dp"
+        android:paddingLeft="20dp"
+        app:exampleColor="#33b5e5"
+        app:exampleDimension="24sp"
+        app:exampleDrawable="@android:drawable/ic_menu_add"
+        app:exampleString="Hello, GIFView" />
+    
+    <TextView
+	        android:id="@+id/progressText"
+	        style="@android:style/TextAppearance.DeviceDefault.Large"
+	        android:layout_width="wrap_content"
+	        android:layout_height="48dp"
+	        android:layout_gravity="center_horizontal"
+	        android:text="@string/percent_progress_text"
+	        android:typeface="serif" />
+
+
+</LinearLayout>
