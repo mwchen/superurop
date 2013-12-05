@@ -78,45 +78,45 @@ public class GIFView extends View {
             a.recycle();
         }
     }
-//	private void init(AttributeSet attrs, int defStyle) {
-//		// Load attributes
-//		final TypedArray a = getContext().obtainStyledAttributes(attrs,
-//				R.styleable.GIFView, defStyle, 0);
-//
-//		mExampleString = a.getString(R.styleable.GIFView_exampleString);
-//		mExampleColor = a.getColor(R.styleable.GIFView_exampleColor,
-//				mExampleColor);
-//		// Use getDimensionPixelSize or getDimensionPixelOffset when dealing
-//		// with
-//		// values that should fall on pixel boundaries.
-//		mExampleDimension = a.getDimension(
-//				R.styleable.GIFView_exampleDimension, mExampleDimension);
-//
-//		if (a.hasValue(R.styleable.GIFView_exampleDrawable)) {
-//			mExampleDrawable = a
-//					.getDrawable(R.styleable.GIFView_exampleDrawable);
-//			mExampleDrawable.setCallback(this);
-//		}
-//
-//		a.recycle();
-//
-//		// Set up a default TextPaint object
-//		mTextPaint = new TextPaint();
-//		mTextPaint.setFlags(Paint.ANTI_ALIAS_FLAG);
-//		mTextPaint.setTextAlign(Paint.Align.LEFT);
-//
-//		// Update TextPaint and text measurements from attributes
-//		invalidateTextPaintAndMeasurements();
-//	}
-//
-//	private void invalidateTextPaintAndMeasurements() {
-//		mTextPaint.setTextSize(mExampleDimension);
-//		mTextPaint.setColor(mExampleColor);
-//		mTextWidth = mTextPaint.measureText(mExampleString);
-//
-//		Paint.FontMetrics fontMetrics = mTextPaint.getFontMetrics();
-//		mTextHeight = fontMetrics.bottom;
-//	}
+	private void init(AttributeSet attrs, int defStyle) {
+		// Load attributes
+		final TypedArray a = getContext().obtainStyledAttributes(attrs,
+				R.styleable.GIFView, defStyle, 0);
+
+		mExampleString = a.getString(R.styleable.GIFView_exampleString);
+		mExampleColor = a.getColor(R.styleable.GIFView_exampleColor,
+				mExampleColor);
+		// Use getDimensionPixelSize or getDimensionPixelOffset when dealing
+		// with
+		// values that should fall on pixel boundaries.
+		mExampleDimension = a.getDimension(
+				R.styleable.GIFView_exampleDimension, mExampleDimension);
+
+		if (a.hasValue(R.styleable.GIFView_exampleDrawable)) {
+			mExampleDrawable = a
+					.getDrawable(R.styleable.GIFView_exampleDrawable);
+			mExampleDrawable.setCallback(this);
+		}
+
+		a.recycle();
+
+		// Set up a default TextPaint object
+		mTextPaint = new TextPaint();
+		mTextPaint.setFlags(Paint.ANTI_ALIAS_FLAG);
+		mTextPaint.setTextAlign(Paint.Align.LEFT);
+
+		// Update TextPaint and text measurements from attributes
+		invalidateTextPaintAndMeasurements();
+	}
+
+	private void invalidateTextPaintAndMeasurements() {
+		mTextPaint.setTextSize(mExampleDimension);
+		mTextPaint.setColor(mExampleColor);
+		mTextWidth = mTextPaint.measureText(mExampleString);
+
+		Paint.FontMetrics fontMetrics = mTextPaint.getFontMetrics();
+		mTextHeight = fontMetrics.bottom;
+	}
 
 	@Override
 	protected void onDraw(Canvas canvas) {
@@ -136,30 +136,31 @@ public class GIFView extends View {
 			double scalefactory = (double) this.getHeight() / (double) movie.height();
 			canvas.scale((float) scalefactorx, (float) scalefactory); 
 			movie.draw(canvas,(float) scalefactorx, (float)scalefactory);
+			//movie.draw(canvas,this.getWidth(), this.getHeight());
 			this.invalidate();
 		}
 	}
 
-//	/**
-//	 * Gets the example string attribute value.
-//	 * 
-//	 * @return The example string attribute value.
-//	 */
-//	public String getExampleString() {
-//		return mExampleString;
-//	}
-//
-//	/**
-//	 * Sets the view's example string attribute value. In the example view, this
-//	 * string is the text to draw.
-//	 * 
-//	 * @param exampleString
-//	 *            The example string attribute value to use.
-//	 */
-//	public void setExampleString(String exampleString) {
-//		mExampleString = exampleString;
-//		invalidateTextPaintAndMeasurements();
-//	}
+	/**
+	 * Gets the example string attribute value.
+	 * 
+	 * @return The example string attribute value.
+	 */
+	public String getExampleString() {
+		return mExampleString;
+	}
+
+	/**
+	 * Sets the view's example string attribute value. In the example view, this
+	 * string is the text to draw.
+	 * 
+	 * @param exampleString
+	 *            The example string attribute value to use.
+	 */
+	public void setExampleString(String exampleString) {
+		mExampleString = exampleString;
+		invalidateTextPaintAndMeasurements();
+	}
 //
 //	/**
 //	 * Gets the example color attribute value.

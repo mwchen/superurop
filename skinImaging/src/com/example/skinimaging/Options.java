@@ -45,12 +45,6 @@ public class Options extends Activity {
 		return true;
 	}
 	
-	/**		//EditText editText = (EditText) findViewById(R.id.edit_message);
-	    //String message = editText.getText().toString();
-		//String message = "Hello World";
-	    //displayPictureIntent.putExtra(EXTRA_MESSAGE, message);
-	 * Deals with how to display the photos.
-	 */
 	public void displayExistingImagesClicked(View view) {
 		
 		Intent displayPictureIntent = new Intent(this, DisplayPhotosActivity.class);
@@ -99,7 +93,7 @@ public class Options extends Activity {
 //	}
 
 	/** Create a File for saving an image or video */
-	private static File getOutputMediaFile(int type){
+	public static File getOutputMediaFile(int type){
 	    // To be safe, you should check that the SDCard is mounted
 	    // using Environment.getExternalStorageState() before doing this.
 
