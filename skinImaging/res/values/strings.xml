@@ -20,7 +20,9 @@
     <string name="confirm_text">Is this Region 1 (Hand)?</string>
     <string name="percent_progress_text">Fill Factor = 12%</string>
     <string name="date_image_text">November 10, 2013</string>
-    
+
     <color name="app_background">#D3D3D3</color>
+
+    <string name="title_activity_display_graph">DisplayGraphActivity</string>
 
 </resources>

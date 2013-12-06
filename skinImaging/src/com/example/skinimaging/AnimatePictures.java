@@ -1,20 +1,23 @@
 package com.example.skinimaging;
 
-import android.os.Bundle;
 import android.app.Activity;
+import android.content.Intent;
+import android.net.Uri;
+import android.os.Bundle;
+import android.provider.MediaStore;
 import android.view.Menu;
 import android.view.View;
-import android.view.ViewGroup;
+import android.view.View.OnClickListener;
+import android.widget.Button;
 import android.widget.GridView;
 import android.widget.ImageView;
-import android.widget.ListAdapter;
-import android.content.Intent;
 
 public class AnimatePictures extends Activity {
 	
 	private Integer gifLocation = R.drawable.skingif1; 
 	
 	GIFView view;
+	Button buttonViewGraph;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -23,6 +26,9 @@ public class AnimatePictures extends Activity {
 		
 		view = (GIFView) findViewById(R.id.gif_animation);
 	    view.setGIFResource(R.drawable.skingif1);
+	    
+	    // Add the listener to the Button.
+	    addContent();
 	}
 
 	@Override
@@ -46,5 +52,15 @@ public class AnimatePictures extends Activity {
 		imageView.setImageResource(gifLocation);
 		return imageView;
 	}
-
+	
+	public void addContent() {
+		buttonViewGraph = (Button) findViewById(R.id.btnViewGraph);
+		buttonViewGraph.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View view) {
+				Intent displayGraphIntent = new Intent(AnimatePictures.this, DisplayGraphActivity.class);
+				startActivity(displayGraphIntent);
+			}
+		});
+	}
 }
